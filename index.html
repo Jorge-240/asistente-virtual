@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix Pro - Soporte Técnico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🔧</div>
+                <div>
+                    <h1>TechFix Pro</h1>
+                    <p class="subtitle">Centro de Soporte Técnico Especializado</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="problems-section">
+                <h2 class="section-title">
+                    🛠️ Categorías de Problemas
+                </h2>
+
+                <div class="problem-category">
+                    <div class="category-header" onclick="toggleCategory('hardware')">
+                        <span>🔌 Problemas de Hardware</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="category-content" id="hardware">
+                        <div class="problem-item" onclick="showSolution('no-enciende')">
+                            <div class="problem-title">El computador no enciende</div>
+                            <div class="problem-description">No hay señales de vida, luces o sonidos</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('sobrecalentamiento')">
+                            <div class="problem-title">Sobrecalentamiento</div>
+                            <div class="problem-description">El equipo se calienta excesivamente y se apaga</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('ruidos-extraños')">
+                            <div class="problem-title">Ruidos extraños</div>
+                            <div class="problem-description">Sonidos anormales provenientes del equipo</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('pantalla-azul')">
+                            <div class="problem-title">Pantalla azul (BSOD)</div>
+                            <div class="problem-description">Pantalla azul con código de error</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-category">
+                    <div class="category-header" onclick="toggleCategory('software')">
+                        <span>💻 Problemas de Software</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="category-content" id="software">
+                        <div class="problem-item" onclick="showSolution('lento')">
+                            <div class="problem-title">Computador muy lento</div>
+                            <div class="problem-description">Rendimiento degradado y respuesta lenta</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('programas-no-abren')">
+                            <div class="problem-title">Los programas no abren</div>
+                            <div class="problem-description">Aplicaciones no responden o fallan al iniciar</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('virus')">
+                            <div class="problem-title">Posible infección de virus</div>
+                            <div class="problem-description">Comportamiento anómalo y posible malware</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('actualizaciones')">
+                            <div class="problem-title">Problemas con actualizaciones</div>
+                            <div class="problem-description">Errores al instalar actualizaciones del sistema</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-category">
+                    <div class="category-header" onclick="toggleCategory('conectividad')">
+                        <span>🌐 Problemas de Conectividad</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="category-content" id="conectividad">
+                        <div class="problem-item" onclick="showSolution('sin-internet')">
+                            <div class="problem-title">Sin conexión a Internet</div>
+                            <div class="problem-description">No puede conectarse a la red</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('wifi-lento')">
+                            <div class="problem-title">WiFi lento o intermitente</div>
+                            <div class="problem-description">Conexión inalámbrica inestable</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('bluetooth')">
+                            <div class="problem-title">Problemas con Bluetooth</div>
+                            <div class="problem-description">No puede conectar dispositivos Bluetooth</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-category">
+                    <div class="category-header" onclick="toggleCategory('perifericos')">
+                        <span>🖱️ Problemas con Periféricos</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="category-content" id="perifericos">
+                        <div class="problem-item" onclick="showSolution('teclado-mouse')">
+                            <div class="problem-title">Teclado o mouse no funcionan</div>
+                            <div class="problem-description">Dispositivos de entrada no responden</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('impresora')">
+                            <div class="problem-title">Problemas con impresora</div>
+                            <div class="problem-description">No imprime o errores de impresión</div>
+                        </div>
+                        <div class="problem-item" onclick="showSolution('audio')">
+                            <div class="problem-title">Sin audio o problemas de sonido</div>
+                            <div class="problem-description">No hay sonido o calidad deficiente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assistant-panel">
+                <div class="assistant-header">
+                    <div class="assistant-avatar">🤖</div>
+                    <div class="assistant-info">
+                        <h3>TechFix Assistant</h3>
+                        <div class="assistant-status" id="assistantStatus">● En línea</div>
+                        <div class="typing-indicator" id="typingIndicator">● Escribiendo...</div>
+                    </div>
+                </div>
+
+                <div class="chat-container" id="chatContainer">
+                    <div class="message assistant">
+                        ¡Hola! 👋 Soy TechFix Assistant, tu asistente técnico especializado. Puedo ayudarte con:
+                        
+                        • Diagnóstico de problemas de hardware y software
+                        • Solución paso a paso de errores comunes
+                        • Optimización del rendimiento de tu equipo
+                        • Consejos de seguridad y mantenimiento
+                        
+                        ¿Qué problema técnico puedo ayudarte a resolver hoy?
+                        <div class="suggestions">
+                            <span class="suggestion-chip" onclick="sendSuggestion('Mi computador está muy lento')">Mi PC está lento</span>
+                            <span class="suggestion-chip" onclick="sendSuggestion('No tengo internet')">Problemas de internet</span>
+                            <span class="suggestion-chip" onclick="sendSuggestion('Mi computador no enciende')">No enciende</span>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn" onclick="rateMessage(this, 'good')">👍</button>
+                            <button class="action-btn" onclick="rateMessage(this, 'bad')">👎</button>
+                            <button class="action-btn" onclick="copyMessage(this)">📋</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <div class="input-container">
+                        <input type="text" id="userInput" placeholder="Describe tu problema técnico..." onkeypress="handleKeyPress(event)">
+                    </div>
+                    <button class="send-btn" id="sendBtn" onclick="sendMessage()">Enviar</button>
+                </div>
+
+                <div class="quick-actions">
+                    <h4>Asistencia Rápida</h4>
+                    <button class="quick-btn" onclick="quickAction('diagnostico')">🔍 Ejecutar diagnóstico automático</button>
+                    <button class="quick-btn" onclick="quickAction('mantenimiento')">🧹 Guía de mantenimiento preventivo</button>
+                    <button class="quick-btn" onclick="quickAction('optimizacion')">⚡ Optimizar rendimiento del sistema</button>
+                    <button class="quick-btn" onclick="quickAction('seguridad')">🛡️ Verificar seguridad del equipo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar soluciones -->
+    <div class="solution-modal" id="solutionModal">
+        <div class="solution-content">
+            <button class="close-modal" onclick="closeSolution()">×</button>
+            <div id="solutionDetails"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
