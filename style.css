@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("imagenes/fondo.avif");
+    background-image: url("fondo.avif");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -574,4 +574,5 @@ h1 {
 
 .chat-container::-webkit-scrollbar-thumb:hover {
     background: #5a6fd8;
+
 }
