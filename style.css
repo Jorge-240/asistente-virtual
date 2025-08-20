@@ -5,10 +5,10 @@
 }
 
 body {
-    background-image: url("fondo.avif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
 }
 
 .container {
@@ -576,3 +576,4 @@ h1 {
     background: #5a6fd8;
 
 }
+
